@@ -10,3 +10,8 @@ Symptoms That your Chip-seq have more duplicates than required
  
 ## Histone markes can be narrow and broad:<br/>
 Refer to encode [guidelines](https://www.encodeproject.org/chip-seq/histone/)
+
+## Sufficient Sequencing depth<br/>
+1. ∼20 million reads: for H3K4me3 <br/> 
+2. ∼40 million: for H3K36me3 & H3K27me3 <br/>
+> Based on these results, we suggest that 40–50 million reads is a practical minimum depth for human marks, except for few special cases such as H3K9me3 that cover very large contiguous domains. [Source](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4027199/)
