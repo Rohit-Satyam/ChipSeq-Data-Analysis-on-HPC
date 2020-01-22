@@ -34,4 +34,4 @@ sort temp2.txt | sed '/_R2.gz/d' | uniq > control.txt
 ## -1 to input forward strand reads                                     ##
 ## -2 to input reverse strand reads                                     ##
 
-cat control.txt | parallel "bwa mem $hg37 $ctrl/{}_R1.gz $ctrl/{}_R2.gz > ./{}.sam 2> {}.stderr"
+cat control.txt | parallel "bwa mem -R '@RG\tID:HNKYTDSXX:3\tSM:12DIa_S6\tPL:ILLUMINA' $hg37 $ctrl/{}_R1.gz $ctrl/{}_R2.gz > ./{}.sam 2> {}.stderr"
