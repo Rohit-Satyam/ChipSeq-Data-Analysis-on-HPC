@@ -17,7 +17,5 @@ ls -1 *.bam > bam_input
 cat bam_input | parallel "samtools flagstat {}"
 
 ## mark_duplicates
-for file in `cat bam_input`
-name=$(basename ${file} .bam)
-picard MarkDuplicates I=$file O=$name.bam M=$name.marked_dup_metrics.txt ASSUME_SORT_ORDER=coordinate TAGGING_POLICY=All TAG_DUPLICATE_SET_MEMBERS=true 2> $name.stderr
-done
+cat bam_inputcat | parallel "picard MarkDuplicates I=$raw/{} O=$out/{.}_dedup.bam M=$out/{.}mark_dup_metrics.txt ASSUME_SORTED=true TAGGING_POLICY=All TAG_DUPLICATE_SET_MEMBERS=true 2> $out/{.}.stderr"
+
