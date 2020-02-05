@@ -1,0 +1,14 @@
+# BSUB -J multiBamSummary.sh
+# BSUB -o bam_summ.o
+# BSUB -e bam_summ.e
+# BSUB -q regularq
+# BSUB -m node8
+# BSUB -n 8
+##bins: The coverage calculation is done for consecutive bins of equal size (10 kilobases by default)                                   ##
+##-b: List of indexed bam files separated by spaces.                                                                                    ##
+##outRawCounts: Save the counts per region to a tab-delimited file.                                                                     ##      
+
+#raw='/home/parashar/archive/chipseq/results/bam_correlation_analysis'
+#out='/home/parashar/archive/chipseq/results/bam_correlation_analysis'
+
+multiBamSummary bins -b *sorted.bam -o bowtie_readCounts.npz --outRawCounts bowtie_readCounts.tab
